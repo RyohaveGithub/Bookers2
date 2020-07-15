@@ -1,0 +1,46 @@
+<p>You have creatad book successfully.</p>
+
+<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+
+<h1>Books</h1>
+    <table>
+    	<thead>
+    	<tr>
+			<th>Title</th>
+			<th>Opinion</th>
+			<th colspan="2"></th>
+		</tr>
+    	</thead>
+    	<tbosy>
+		<% @books.each do |book| %>
+		<tr>
+			<td><%=book.title %></td>
+			<td><%=book.body %></td>
+			</td>
+		</tr>
+		<% end %>
+	    </tbosy>
+    </table>
+
+
+<h1>New Book</h1>
+
+<%= form_for(@book) do |f| %>
+<% if @book.errors.any? %>
+   <div id=error_explanation>
+   	<h2><%= @book.errors.count %> error prihibited this book from being saved:</h2>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+   <h3>Title</h3>
+   <%=f.text_field :title %>
+
+   <h3>Boby</h3>
+   <%=f.text_area :body %>
+
+   <%= f.submit 'Create Book' %>
+<%end%>
