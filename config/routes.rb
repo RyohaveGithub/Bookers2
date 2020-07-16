@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'users#top'
+  
+  devise_for :users
+  
   resources:books
 
 
