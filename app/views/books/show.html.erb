@@ -1,6 +1,48 @@
 <p id=notice>Book was successfully created.</p>
 
+<div class="container"> <!-- ここを追加 -->
+    <div class="row">
 
+ <div class="col-lg-4">
+ <h1>User info</h1>
+
+   <%= attachment_image_tag @user,:profile_image, format='jpg', fallback: "no_image.jpg" %>
+   <h3>name</h3>
+   <%= @user.name %>
+   <br>
+   <h3>introduction</h3>
+    <%= @user.introduction %>
+
+   <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
+
+
+
+<h1>New Book</h1>
+
+<%= form_for(@book) do |f| %>
+<% if @book.errors.any? %>
+   <div id=error_explanation>
+    <h2><%= @book.errors.count %> error prihibited this book from being saved:</h2>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+   <h3>Title</h3>
+   <%=f.text_field :title %>
+
+   <h3>Boby</h3>
+   <%=f.text_area :body %>
+
+   <%= f.submit 'Create Book' %>
+<%end%>
+</div>
+
+<div class="col-lg-8">
 <h2>Book detail</h2>
   <table>
   	<tbosy>
@@ -14,4 +56,6 @@
 	  </tr>
 	</tbosy>
   </table>
-
+</div>
+</div>
+</div>
