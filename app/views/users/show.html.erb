@@ -42,27 +42,25 @@
 </div>
 
 <div class="col-lg-8">
-<h1>Books</h1>
+<h2>Books</h2>
     <table class="table table-striped">
       <thead>
       <tr>
-      <th colspan="1"></th>
-      <th>Title</th>
-      <th>Opinion</th>
-      <th colspan="2"></th>
-    </tr>
-      </thead>
+       <th colspan="1"></th>
+       <th>Title</th>
+       <th>Opinion</th>
+     </tr>
+    </thead>
       <tbosy>
-    <% @books.each do |book| %>
-    <tr>
-      <td><%= attachment_image_tag @user,:profile_image, format='jpg', fallback: "no_image.jpg" %></td>
-      <td><%= @book.title %></td>
-      <td><%= @book.body %></td>
-      </td>
-    </tr>
-    <% end %>
+        <% @books.each do |book| %>
+         <tr>
+          <td><%= attachment_image_tag @user,:profile_image, format='jpg', fallback: "no_image.jpg" %></td>
+          <td><%= book.title %></td>
+          <td><%= book.body %></td>
+        </tr>
+        <% end %>
       </tbosy>
     </table>
    </div>   <!-- ここを追加 -->
-  </div> 
+  </div>
 </div>
