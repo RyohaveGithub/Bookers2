@@ -1,7 +1,7 @@
 <div class="container"> <!-- ここを追加 -->
     <div class="row">
 
- <div class="col-lg-4">
+ <div class="col-lg-3">
  <h1>User info</h1>
 
    <%= attachment_image_tag @user,:profile_image, format='jpg', fallback: "no_image.jpg" %>
@@ -12,7 +12,7 @@
     <%= @user.introduction %>
 
    <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+    <%= link_to "", edit_user_path(@user) ,class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_21182"%>
   <% end %>
 
 
@@ -40,7 +40,7 @@
 <%end%>
 </div>
 
-<div class="col-lg-8">
+<div class="col-lg-9">
 <h2>Books</h2>
   <table class="table table-striped">
     <thead>

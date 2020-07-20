@@ -17,3 +17,26 @@
 @import "bootstrap-sprockets";  /*ここを追加*/
 @import "bootstrap";            /*ここを追加*/
 
+header{
+    position:relative;
+	background-color:#222;
+	height: 50px;
+}
+
+.aikonn{
+	position:absolute;
+	top:0px;
+	right:60px;
+}
+
+h4{
+	color:white;
+	position:absolute;
+	left:60px;
+}
+
+p{
+	position:absolute;
+	right:60px;
+}
+

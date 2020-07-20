@@ -16,8 +16,6 @@ class UsersController < ApplicationController
     @users = User.all
 	end
 
-  def about
-  end
 
   def edit
     @user = User.find(params[:id])

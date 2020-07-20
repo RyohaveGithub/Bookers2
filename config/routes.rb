@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'homes/about'
   root 'users#top'
-  
+
   devise_for :users
-  
+
   resources:books
 
 
