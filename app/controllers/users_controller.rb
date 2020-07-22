@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -6,14 +7,12 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
-  def top
-  end
 
 	def show
-    @book = Book.find(params[:id])
-    @books = Book.all
-    @user = current_user
-    @users = User.all
+    @book = Book.new
+    @user = User.find(params[:id])
+    @books = Book.where(user_id: @user.id)
+
 	end
 
 
@@ -24,7 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to books_path
+      redirect_to user_path
     else
       render 'edit'
     end
